@@ -2,6 +2,7 @@
 _2020 Fall - CS 076/276 F00422M Mingi Jeong_
 
 ## Introduction
+
 1. State definition
     * According to the guidance of PA-1, I chose to define a state indicating how many chickens and foxes are on 
     the starting side as well as the boat is located on the starting side or not.
@@ -16,7 +17,7 @@ _2020 Fall - CS 076/276 F00422M Mingi Jeong_
 1. Upper bound on the number of the states
     * Based on the state definition above, we can derive the upper bound on the number of the states without considering legality.
 
-    ![Alt Text](images/state_definition.pdf)
+    ![state definition](images/state_definition.pdf)
     
     * Considering three slots as per the shown figure, it is just basic math calculation for the total upper bound.
     Given the number of chicke and foxes is three with one boat, the upper bound is (3+1) * (3+1) * (1+1) = 32. 
@@ -24,7 +25,7 @@ _2020 Fall - CS 076/276 F00422M Mingi Jeong_
     
 1. Action and state change
 
-    ![Alt Text](images/state.pdf)
+    ![state examples](images/state.pdf)
     
     * As an example drawing, the starting state (colored in sky blue) is (3,3,1). Based on all actions possible,
     the legal actions are shown in green whereas the illegal actions are shown in red.
@@ -42,6 +43,7 @@ _2020 Fall - CS 076/276 F00422M Mingi Jeong_
 
 ## Building the model
 This is mainly explanation about _FoxProblem.py_.
+
 1. Properties
     * For class FoxProblem's properties, I used same start_state and goal_state. Therefore, we keep track of states on the starting dock side until it 
     reach the goal_state (0,0,0). The other side's state can be automatically obtained by tuple subtraction as I used in the scripts.
@@ -77,6 +79,7 @@ Then, it returns 'solution' which is instantiated at the beginning of BFS.
 * If the goal_state was not reached, it still returns 'solution' so that we can check information in _foxes.py_.
   
 ## Depth-first search
+
 1. Discussion (Memoization):
     * To entirely keep track of all states visited, it is possible to use memoization as what we do for graph search.
     * However, if we do memoizing, the space complexity can be more than BFS. BFS' space complexity is _O(b^d)_ where _b_ is branching factor and _d_
@@ -103,7 +106,7 @@ Then, it returns 'solution' which is instantiated at the beginning of BFS.
 
 3. Discussion (Path-checking DFS vs BFS)
 
-    ![Alt Text](images/dfs_vs_bfs.pdf)
+    ![BFS vs BFS example](images/dfs_vs_bfs.pdf)
 
     * Memory: In a normal case, path-checking DFS is supposed to save significant memory with respect to BFS.
     The reason is that BFS saved all the visited nodes in 'set' whereas path-checking DFS removed visited nodes which didn't lead the algorithm to the goal state. 
@@ -116,6 +119,7 @@ Then, it returns 'solution' which is instantiated at the beginning of BFS.
     
     
 ## Iterative deepening search
+
 1. Implementation 
     * Depth limited search is already implemented by DFS given it has an input function argument as depth_limit.
     * For iterative deepening search (IDS), I used an expanded version by wrapping the original DFS I used. By simply using 'for' sentence,
@@ -145,24 +149,40 @@ If E = 1, N can be 0 or 1. In such a case, possible states are  (T+1) * (F+1) * 
 From this derivation, the upper bound will be (T+1) * (F+1) * 2 + (T) * (F+1) * 2 + (T-1) * (F+1) * 2 +...+ (T-E) * (F+1) * 2.
 
 ## Appendix
-Here is screenshots for printing out result when running _fox.py_.
+Here are screenshots for printing out result when running _fox.py_.
+
 * BFS (3,3,1)
-![Alt Text](images/BFS331.PNG)
+
+![BFS (3,3,1)](images/BFS331.PNG)
+
 * DFS (3,3,1)
-![Alt Text](images/DFS331.PNG)
+
+![DFS (3,3,1)](images/DFS331.PNG)
+
 * IDS (3,3,1)
-![Alt Text](images/IDS331.PNG)
+
+![IDS (3,3,1)](images/IDS331.PNG)
 
 * BFS (5,5,1)
-![Alt Text](images/BFS551.PNG)
+
+![BFS (5,5,1)](images/BFS551.PNG)
+
 * DFS (5,5,1)
-![Alt Text](images/DFS551.PNG)
+
+![DFS (5,5,1)](images/DFS551.PNG)
+
 * IDS (5,5,1)
-![Alt Text](images/IDS551.PNG)
+
+![IDS (5,5,1)](images/IDS551.PNG)
 
 * BFS (5,4,1)
-![Alt Text](images/BFS541.PNG)
+
+![BFS (5,4,1)](images/BFS541.PNG)
+
 * DFS (5,4,1)
-![Alt Text](images/DFS541.PNG)
+
+![DFS (5,4,1)](images/DFS541.PNG)
+
 * IDS (5,4,1)
-![Alt Text](images/IDS541.PNG)
+
+![IDS (5,4,1)](images/IDS541.PNG)
