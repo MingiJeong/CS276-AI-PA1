@@ -143,3 +143,26 @@ Based on this, let's say total number of chicken (T) at the beginning was 3 as a
 The current number of chicken (C) + N should be no more than T, as N is less than or equal to E by the instruction.
 If E = 1, N can be 0 or 1. In such a case, possible states are  (T+1) * (F+1) * 2 + (T) * (F+1) * 2. The former part is when N = 0, whereas the latter part is when N = 1.
 From this derivation, the upper bound will be (T+1) * (F+1) * 2 + (T) * (F+1) * 2 + (T-1) * (F+1) * 2 +...+ (T-E) * (F+1) * 2.
+
+## Appendix
+Here is screenshots for printing out result when running _fox.py_.
+* BFS (3,3,1)
+![Alt Text](images/BFS331.PNG)
+* DFS (3,3,1)
+![Alt Text](images/DFS331.PNG)
+* IDS (3,3,1)
+![Alt Text](images/IDS331.PNG)
+
+* BFS (5,5,1)
+![Alt Text](images/BFS551.PNG)
+* DFS (5,5,1)
+![Alt Text](images/DFS551.PNG)
+* IDS (5,5,1)
+![Alt Text](images/IDS551.PNG)
+
+* BFS (5,4,1)
+![Alt Text](images/BFS541.PNG)
+* DFS (5,4,1)
+![Alt Text](images/DFS541.PNG)
+* IDS (5,4,1)
+![Alt Text](images/IDS541.PNG)
