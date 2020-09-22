@@ -16,7 +16,7 @@ _2020 Fall - CS 076/276 F00422M Mingi Jeong_
 1. Upper bound on the number of the states
     * Based on the state definition above, we can derive the upper bound on the number of the states without considering legality.
 
-    ![state_definition](/images/state_definition.pdf)
+    ![Alt Text](images/state_definition.pdf)
     
     * Considering three slots as per the shown figure, it is just basic math calculation for the total upper bound.
     Given the number of chicke and foxes is three with one boat, the upper bound is (3+1) * (3+1) * (1+1) = 32. 
@@ -24,7 +24,7 @@ _2020 Fall - CS 076/276 F00422M Mingi Jeong_
     
 1. Action and state change
 
-    ![state_change](/images/state.pdf)
+    ![Alt Text](images/state.pdf)
     
     * As an example drawing, the starting state (colored in sky blue) is (3,3,1). Based on all actions possible,
     the legal actions are shown in green whereas the illegal actions are shown in red.
@@ -103,7 +103,7 @@ Then, it returns 'solution' which is instantiated at the beginning of BFS.
 
 3. Discussion (Path-checking DFS vs BFS)
 
-    ![dsfbfs](/images/dfs_vs_bfs.pdf)
+    ![Alt Text](images/dfs_vs_bfs.pdf)
 
     * Memory: In a normal case, path-checking DFS is supposed to save significant memory with respect to BFS.
     The reason is that BFS saved all the visited nodes in 'set' whereas path-checking DFS removed visited nodes which didn't lead the algorithm to the goal state. 
